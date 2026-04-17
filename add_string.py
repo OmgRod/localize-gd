@@ -16,7 +16,6 @@ def save_json(path, data):
         json.dump(data, f, ensure_ascii=False, indent=2)
 
 def add_string_to_translations(new_string):
-    # Add to en.json
     en_data = load_json(EN_FILE)
     if new_string not in en_data:
         en_data[new_string] = new_string
@@ -24,7 +23,6 @@ def add_string_to_translations(new_string):
         print(f"Added '{new_string}' to en.json.")
     else:
         print(f"'{new_string}' already exists in en.json.")
-    # Add to other translations as TODO
     files = glob(os.path.join(TRANSLATION_DIR, '*.json'))
     for file in files:
         if os.path.basename(file) == 'en.json':

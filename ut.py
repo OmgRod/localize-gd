@@ -47,13 +47,11 @@ def fill_missing_keys():
     files = glob(os.path.join(translations_dir, "*.json"))
     all_keys = set()
     file_data = {}
-    # Collect all keys from all files
     for file in files:
         with open(file, encoding="utf-8") as f:
             data = json.load(f)
         file_data[file] = data
         all_keys.update(data.keys())
-    # Add missing keys with [TODO]: prefix
     for file, data in file_data.items():
         updated = False
         for key in all_keys:

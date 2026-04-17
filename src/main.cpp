@@ -27,6 +27,8 @@ and enabling "Pusab Fix" in-game.
 
 #include <Geode/Geode.hpp>
 #include <Geode/modify/CCLabelBMFont.hpp>
+#include <Geode/modify/MultilineBitmapFont.hpp>
+#include <Geode/modify/MultilineBitmapFont.hpp>
 #include <Geode/modify/GJBaseGameLayer.hpp>
 #include <Geode/modify/CCSpriteBatchNode.hpp>
 #include <Geode/modify/CCTextureCache.hpp>
@@ -89,20 +91,24 @@ class $modify(MyCCLabelBMFont, CCLabelBMFont) {
         return label;
     }
 
+    #ifndef GEODE_IS_IOS
 	void setFntFile(const char* fntFile) {
 		if (strcmp(fntFile, "goldFont.fnt") == 0) {
 			return CCLabelBMFont::setFntFile(getFnt());
 		}
 		CCLabelBMFont::setFntFile(fntFile);
 	}
+    #endif
 
 	void setString(const char* string, bool needUpdateLabel) {
-		if (hasTranslationKey(string)) {
-			std::string newStr = getLanguageString(string);
-			CCLabelBMFont::setString(newStr.c_str(), needUpdateLabel);
-		} else {
-			CCLabelBMFont::setString(string, needUpdateLabel);
-		}
+        if (!(typeinfo_cast<MultilineBitmapFont*>(this->getParent()))) {
+            if (hasTranslationKey(string)) {
+                std::string newStr = getLanguageString(string);
+                CCLabelBMFont::setString(newStr.c_str(), needUpdateLabel);
+            } else {
+                CCLabelBMFont::setString(string, needUpdateLabel);
+            }
+        }
 	}
 
 	void setCString(const char* string) {
@@ -129,3 +135,16 @@ class $modify(CCTextureCache) {
 		return ret;
 	}
 };
+
+#ifndef GEODE_IS_WINDOWS
+class $modify(MyMultilineBitmapFont, MultilineBitmapFont) {
+    static MultilineBitmapFont* createWithFont(char const* font, gd::string text, float scale, float width, CCPoint anchor, int height, bool disableColor) {
+        if (hasTranslationKey(text)) {
+			std::string newStr = getLanguageString(text);
+			MultilineBitmapFont::createWithFont(font, newStr, scale, width, anchor, height, disableColor);
+		} else {
+			MultilineBitmapFont::createWithFont(font, text, scale, width, anchor, height, disableColor);
+		}
+    }
+};
+#endif
