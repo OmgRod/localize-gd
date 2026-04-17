@@ -1,2 +1,2 @@
 @echo off
-tolgee pull --project-id=30518 --path ./res/translations
+tolgee pull --project-id=34 --path ./res/translations --api-url https://quizly.omgrod.me

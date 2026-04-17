@@ -11,12 +11,9 @@
 	"version": "v1.0.0",
 	"developer": "OmgRod",
 	"description": "This mod adds translations into the game.",
-	"dependencies": {
-		"geode.node-ids": ">=v1.23.3"
-	},
 	"resources": {
 		"files": [
-			"res/translations/gd/*.json",
+			"res/translations/*.json",
 			"res/fonts/*.png",
 			"res/fonts/*.fnt"
 		],

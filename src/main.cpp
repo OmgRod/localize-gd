@@ -26,7 +26,6 @@ and enabling "Pusab Fix" in-game.
 */
 
 #include <Geode/Geode.hpp>
-#include <Geode/modify/LoadingLayer.hpp>
 #include <Geode/modify/CCLabelBMFont.hpp>
 #include <Geode/modify/GJBaseGameLayer.hpp>
 #include <Geode/modify/CCSpriteBatchNode.hpp>
@@ -73,19 +72,46 @@ class $modify(CCSpriteBatchNode) {
 	}
 };
 
-class $modify(CCLabelBMFont) {
+class $modify(MyCCLabelBMFont, CCLabelBMFont) {
 	static CCLabelBMFont* createBatched(const char* str, const char* fntFile, CCArray* a, int a1) {
 		if (static_cast<std::string>(fntFile) == "goldFont.fnt") fntFile = getFnt();
-		auto font = CCLabelBMFont::createBatched(str, fntFile, a, a1);
-        font->setPosition(font->getPosition());
-        return font;
+        auto font = CCLabelBMFont::createBatched(str, fntFile, a, a1);
+        font->setString(str);
+		return font;
 	}
-    
+
+    static CCLabelBMFont* create(char const* str, char const* fntFile, float width, CCTextAlignment alignment, CCPoint offset) {
+        auto newStr = str;
+        if (hasTranslationKey(str)) {
+            std::string newStr = getLanguageString(str);
+		}
+        auto label = CCLabelBMFont::create(newStr, fntFile, width, alignment, offset);
+        return label;
+    }
+
 	void setFntFile(const char* fntFile) {
 		if (strcmp(fntFile, "goldFont.fnt") == 0) {
 			return CCLabelBMFont::setFntFile(getFnt());
 		}
 		CCLabelBMFont::setFntFile(fntFile);
+	}
+
+	void setString(const char* string, bool needUpdateLabel) {
+		if (hasTranslationKey(string)) {
+			std::string newStr = getLanguageString(string);
+			CCLabelBMFont::setString(newStr.c_str(), needUpdateLabel);
+		} else {
+			CCLabelBMFont::setString(string, needUpdateLabel);
+		}
+	}
+
+	void setCString(const char* string) {
+		if (hasTranslationKey(string)) {
+			std::string newStr = getLanguageString(string);
+			CCLabelBMFont::setCString(newStr.c_str());
+		} else {
+			CCLabelBMFont::setCString(string);
+		}
 	}
 };
 
@@ -101,14 +127,5 @@ class $modify(CCTextureCache) {
 		}
 		if (!didChange) ret = CCTextureCache::addImage(fileImage, p1);
 		return ret;
-	}
-};
-
-class $modify(MyLoadingLayer, LoadingLayer) {
-	char const* getLoadingString() {
-		int num = geode::utils::random::generate(1, 101);
-		static std::string str;
-		str = getLanguageString("gd", "loading", "message", fmt::to_string(num));
-		return str.c_str();
 	}
 };
