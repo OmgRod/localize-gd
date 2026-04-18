@@ -251,5 +251,20 @@
   "OK": "OK",
   "Saved Levels": "Saved Levels",
   "Find Level": "Find Level",
-  "Search": "Search"
+  "Search": "Search",
+  "Col1": "Col1",
+  "Col2": "Col2",
+  "Glow": "Glow",
+  "Main Color {number}": "Main Color {number}",
+  "My Levels": "My Levels",
+  "Verified": "Verified",
+  "Unverified": "Unverified",
+  "My Lists": "My Lists",
+  "Unpublished": "Unpublished",
+  "Upload Complete": "Upload Complete",
+  "Back": "Back",
+  "Get It": "Get It",
+  "Uploaded": "Uploaded",
+  "Remove Server List": "Remove Server List",
+  "Gauntlets": "Gauntlets"
 }

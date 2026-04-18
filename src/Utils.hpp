@@ -5,19 +5,21 @@
 
 using namespace geode::prelude;
 
+static const std::unordered_map<std::string, std::string> languageMap = {
+    {"English", "en"},
+    {"Spanish", "es"},
+    {"French", "fr"},
+    {"Portuguese", "pt"},
+    {"Russian", "ru"},
+    {"Italian", "it"},
+    {"Polish", "pl"},
+    {"Ukrainian", "uk"},
+    {"Bulgarian", "bg"},
+    {"Serbian", "sr"},
+};
+
 inline std::string getLanguageString(const std::string& key) {
     auto language = Mod::get()->getSettingValue<std::string>("language");
-    static const std::unordered_map<std::string, std::string> languageMap = {
-        {"Arabic", "ar"},
-        {"German", "de-DE"},
-        {"English", "en"},
-        {"Spanish", "es"},
-        {"French", "fr"},
-        {"Japanese", "ja"},
-        {"Korean", "ko-KR"},
-        {"Portuguese", "pt"},
-        {"Russian", "ru"},
-    };
 
     auto it = languageMap.find(language);
     std::string langCode = "en";
@@ -29,41 +31,30 @@ inline std::string getLanguageString(const std::string& key) {
     std::ifstream file(path);
     if (!file.is_open()) {
         log::error("Failed to open file: {}", path.string());
-        return "Unknown";
+        return key;
     }
     auto result = matjson::parse(file);
     if (!result) {
         log::error("Failed to parse JSON: {}", result.unwrapErr().message);
-        return "Unknown";
+        return key;
     }
     auto json = result.unwrap();
     auto valResult = json.get(key);
     if (!valResult) {
         log::error("Key '{}' not found in translation file", key);
-        return "Unknown";
+        return key;
     }
     auto& val = valResult.unwrap();
     auto strResult = val.asString();
     if (!strResult) {
         log::error("Value for key '{}' is not a string", key);
-        return "Unknown";
+        return key;
     }
     return strResult.unwrap();
 }
 
 inline bool hasTranslationKey(const std::string& key) {
     auto language = Mod::get()->getSettingValue<std::string>("language");
-    static const std::unordered_map<std::string, std::string> languageMap = {
-        {"Arabic", "ar"},
-        {"German", "de-DE"},
-        {"English", "en"},
-        {"Spanish", "es"},
-        {"French", "fr"},
-        {"Japanese", "ja"},
-        {"Korean", "ko-KR"},
-        {"Portuguese", "pt"},
-        {"Russian", "ru"},
-    };
 
     log::info("[hasTranslationKey] Checking key '{}' for language '{}'...", key, language);
 
