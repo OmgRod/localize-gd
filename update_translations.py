@@ -19,7 +19,7 @@ def extract_strings(obj, path=()):
     return {}
 
 def main():
-    translations_dir = os.path.join("res", "translations")
+    translations_dir = os.path.join("res", "translations", "gd")
     files = glob(os.path.join(translations_dir, "*.json"))
     with open(os.path.join(translations_dir, "en.json"), encoding="utf-8") as f:
         en_data = json.load(f)
@@ -43,7 +43,7 @@ def main():
     fill_missing_keys()
 
 def fill_missing_keys():
-    translations_dir = os.path.join("res", "translations")
+    translations_dir = os.path.join("res", "translations", "gd")
     files = glob(os.path.join(translations_dir, "*.json"))
     all_keys = set()
     file_data = {}

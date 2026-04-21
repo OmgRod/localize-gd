@@ -11,6 +11,9 @@ set(CMAKE_CXX_VISIBILITY_PRESET hidden)
 project(Localize VERSION 1.0.0)
 
 file(GLOB_RECURSE SOURCES CONFIGURE_DEPENDS src/*.cpp)
+
+include_directories(${CMAKE_CURRENT_SOURCE_DIR}/include)
+
 add_library(${PROJECT_NAME} SHARED ${SOURCES})
 
 if (NOT DEFINED ENV{GEODE_SDK})

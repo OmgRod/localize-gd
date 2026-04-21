@@ -13,7 +13,9 @@
 	"description": "This mod adds translations into the game.",
 	"resources": {
 		"files": [
-			"res/translations/*.json",
+			"res/translations/gd/*.json",
+			"res/translations/geode/*.json",
+			"res/translations/mods/*.json",
 			"res/fonts/*.png",
 			"res/fonts/*.fnt"
 		],
@@ -25,10 +27,25 @@
 		"language": {
 			"name": "Language",
 			"description": "Select the language you want to translate the game to.",
-			"type": "string",
-			"one-of": ["English", "Spanish", "French", "Portuguese", "Russian", "Italian", "Ukrainian", "Bulgarian", "Serbian", "Polish"],
+			"type": "custom:dropdown",
+			"one-of": ["English", "Spanish", "French", "Portuguese", "Russian", "Italian", "Ukrainian", "Bulgarian", "Serbian (Latin)", "Polish"],
 			"default": "English"
 		}
 	},
-	"early-load": true
+	"early-load": true,
+	"dependencies": {
+		"geode.node-ids": ">=1.23.3",
+		"alphalaneous.alphas_geode_utils": ">=1.2.5"
+	},
+	"api": {
+		"include": [
+			"include/*.hpp"
+		]
+	},
+	"links": {
+		"community": "https://discord.gg/vK3DuqJwyW",
+		"homepage": "https://localizegd.omgrod.me/",
+		"source": "https://github.com/OmgRod/localize-gd/"
+	},
+	"tags": ["api", "content", "customization", "enhancement", "interface", "offline", "universal"]
 }

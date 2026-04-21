@@ -2,7 +2,7 @@ import os
 import json
 from glob import glob
 
-TRANSLATION_DIR = os.path.join(os.path.dirname(__file__), 'res', 'translations')
+TRANSLATION_DIR = os.path.join(os.path.dirname(__file__), 'res', 'translations', 'gd')
 EN_FILE = os.path.join(TRANSLATION_DIR, 'en.json')
 
 def load_json(path):

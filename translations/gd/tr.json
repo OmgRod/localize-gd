@@ -1,0 +1,91 @@
+{
+  "gd": {
+    "loading": {
+      "message": {
+        "1": "Zıplamalarını zamanlamak için müziği dinle",
+        "17": "Peki ya dikenler aslında iyi taraftaysa?",
+        "29": "Programcı uyuyor, lütfen bekle",
+        "3": "Seviyenin düzenini öğrenmek için pratik modunu kullanabilirsin.",
+        "30": "RobTop Aşktır, RobTop Hayattır",
+        "38": "Sahte dikenler sahtedir",
+        "40": "Neden dışarı çıkmıyorsun?",
+        "43": "Mahzen bekçisinin adı 'Spooky'...",
+        "44": "Umarım büyük adam uyanmaz...",
+        "45": "Şşşş! Büyük adamı uyandıracaksın!",
+        "47": "Vahşi bir RubRub belirdi!",
+        "5": "Karakterinin ikonunu ve rengini kişiselleştir!",
+        "51": "Mükemmel YZ programlıyorum",
+        "54": "RubRub buradaydı",
+        "58": "Bunun nasıl çalıştığını bilmiyorum...",
+        "59": "Neden öfkeli olmak zorundasın ki?",
+        "61": "Bir Ninja Muffin'de ne?",
+        "62": "2.3 güncellemesi yakında geliyor",
+        "63": "Neden geri döndün? Acı çekmeye mi?",
+        "64": "Ben porfesyonel porgramcıyım",
+        "65": "Robert Games'e hoşgeldin",
+        "66": "En Hızlı Güncelleme ödülünün kazananı",
+        "68": "%96'da ölme zamanı",
+        "69": "Gelmiş geçmiş en rahatlatıcı oyun",
+        "7": "Dikenler arkadaşın değil, zıplamayı unutma",
+        "70": "Şimdi daha fazla renk ile!",
+        "71": "Troll Karargâhı",
+        "72": "Dünyadaki en arkadaş canlı yere hoşgeldin",
+        "74": "RobTroll tarafından yapıldı",
+        "75": "Neden sadece nazik olamıyorsun",
+        "76": "Yükleme ekranı yükleniyor",
+        "78": "RTX KAPALI",
+        "79": "Rob Top'lama Zamanı!",
+        "8": "Seviye editörünü kullanarak kendi seviyelerini oluştur",
+        "81": "Ye. Uyu. Dash'le. Tekrarla.",
+        "82": "İmkansız geometri!",
+        "83": "Fizikleri bozuyorum...",
+        "84": "Daha fazla FPS bulmaya çalışıyorum",
+        "85": "Sakin kal, veya panik ol. Hangisini tercih edersen.",
+        "86": "Artık zamanı gelmişti...",
+        "87": "Yükleme tamamlandı. Sadece bekliyorum.",
+        "88": "Pikseller toplanıyor...",
+        "89": "Günün sonunda, gece olur.",
+        "9": "Diğer oyuncuların seviyelerini oynamak için çevrim içi ol!",
+        "90": "Sen kaç yıl bekledin böyle!?",
+        "93": "Hatalar düzeltiliyor, bekle.",
+        "94": "Hatalar ekleniyor, bekle.",
+        "95": "Bu fiziklerde ne böyle...",
+        "96": "Neyi özellikle yüklüyorsun?",
+        "98": "Bende biraz programcı sayılırım...",
+        "99": "Bak ne diyeceğim, bilmiyorum...",
+        "default": "Kaynaklar yükleniyor"
+      }
+    },
+    "settings": {
+      "account": {
+        "linked": "{user} hesabına bağlı",
+        "load": "Yükle",
+        "more": "Daha fazla",
+        "save": "Yedekle",
+        "title": "Hesap"
+      },
+      "button": {
+        "account": "Hesap",
+        "graphics": "Grafikler",
+        "help": "Yardım",
+        "howtoplay": "Nasıl Oynanır",
+        "options": "Seçenekler",
+        "rate": "Değenlendir",
+        "songs": "Şarkılar"
+      },
+      "howtoplay": {
+        "3": "<cl>Pratik moduna</c> duraklatma menüsünden girebilirsiniz.\nPratik modu <cg>checkpointler</c> koymanızı sağlar.",
+        "4": "Manuel olarak checkpointler koyabilir, veya oyunun otomatik checkpoint özelliğini kullanabilirsiniz.\nEn son ki checkpointi kaldırmak için silme tuşuna basın.",
+        "5": "<cy>Zıplama Küreleri</c> üzerindeyken aktifleşir.\nKürenin etkisini kullanmak için dokunurken ekrana <cg>dokunun</cg>.",
+        "next": "Sonraki",
+        "title": "Nasıl Oynanır"
+      },
+      "menumusic": "Menü\nMüziği",
+      "slider": {
+        "music": "Müzik",
+        "sfx": "Ses Efektleri"
+      },
+      "title": "Ayarlar"
+    }
+  }
+}
